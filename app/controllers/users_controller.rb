@@ -1,0 +1,18 @@
+class UsersController < ApplicationController
+  def dashboard
+  end
+  
+  def update
+    @user = current_user
+    if @user.update_attributes(current_user_params)
+    end
+    redirect_to dashboard_path
+  end
+  
+  private
+  
+  def current_user_params
+    params.require(:user).permit(:about, :status)
+  end
+  
+end
