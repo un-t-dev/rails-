@@ -21,9 +21,18 @@
       
       <% else %>
       <div class="navbar-item has-dropdown is-hoverable" style="margin-right: 100px;">
-        <a class="navbar-item"><%= current_user.email %></a>
+        <a class="navbar-item">
+          <figure class="image is-48x48 m-r-5">
+            <div style="margin-top: 0.6rem;">
+              <%= image_tag avatar_url(current_user), class: "is-rounded" %>
+            </div>
+         </figure>
+        </a>
         <div class="navbar-dropdown">
           <a href="" class="navbar-item"></a>
+          <a href="" class="navbar-item"></a>
+          <hr class="navbar-divider">
+          <%= link_to  "ユーザー登録情報編集", edit_user_registration_path, class: "navbar-item" %>
           <a href="" class="navbar-item"></a>
           <hr class="navbar-divider">
           <%= link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
@@ -39,12 +48,12 @@
       <nav class="navbar has-shadow" style="z-index: 3;">
         <div class="container">
             <div class="navbar">
-                <%= link_to 'ダッシュボード', dashboard_path, class: "navbar-item" %>
+                <%= link_to 'プロフィール', dashboard_path, class: "navbar-item" %>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">ホスト</a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item"></a>
-                        <a class="navbar-item"></a>
+                        <%= link_to  "お部屋を新規登録", new_room_path, class: "navbar-item" %>
+                        <%= link_to  "登録したお部屋一覧", rooms_path, class: "navbar-item" %>
                     </div>
                 </div>
                 <div class="navbar-item has-dropdown is-hoverable">

@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
+  
+  before_action :authenticate_user!
+
   def dashboard
+  end
+  
+  def show
+    @user = User.find(params[id])
   end
   
   def update
@@ -12,7 +19,7 @@ class UsersController < ApplicationController
   private
   
   def current_user_params
-    params.require(:user).permit(:about, :status)
+    params.require(:user).permit(:about, :status, :avatar)
   end
   
 end
