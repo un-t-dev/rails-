@@ -20,9 +20,12 @@ Rails.application.routes.draw do
       get 'description'
       get 'photo_upload'
       get 'location'
+      get 'preload'
+      get 'preview'
       delete :delete_photo
       post :upload_photo
     end
+    resources :reservations, only: [:create]
   end
   
 end

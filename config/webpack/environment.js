@@ -11,4 +11,10 @@ environment.plugins.append('Provide',
     })
 );
 
-
+environment.toWebpackConfig().merge({
+    resolve: {
+        alias: {
+            'jquery': 'jquery/src/jquery'
+        }
+    }
+});

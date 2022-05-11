@@ -7,7 +7,9 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+
 require("jquery");
+require("jquery-ui/ui/widgets/datepicker");
 
 window.Dropzone = require("dropzone");
 window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel");
