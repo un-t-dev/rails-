@@ -13,11 +13,14 @@ class ReservationsController < ApplicationController
           @reservation = current_user.reservations.build(reservation_params)
           @reservation.room = room
           @reservation.price = room.price
-          @reservation.total = room.price * days
+          @reservation.person = person
+          @reservation.total = room.price * person * days 
           @reservation.save
       end
       redirect_to room
     end
+    
+    
     
     private
       def reservation_params

@@ -98,7 +98,7 @@
                   $('#message').text("");
                   $('#preview').show();
                   $('#btn_book').attr('disabled', false);
-                  let total = nights * <%= @room.price %>
+                  let total = nights * <%= @room.price %> * <%= @reservation.person %>
                   $('#reservation_nights').text(nights);
                   $('#reservation_total').text(total);
                 }
@@ -132,7 +132,7 @@
                   $('#message').text("");
                   $('#preview').show();
                   $('#btn_book').attr('disabled', false);
-                  let total = nights * <%= @room.price %>
+                  let total = nights * <%= @room.price %> * <%= @reservation.person 
                   $('#reservation_nights').text(nights);
                   $('#reservation_total').text(total);
                 }
