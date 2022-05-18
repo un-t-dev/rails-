@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
           @reservation = current_user.reservations.build(reservation_params)
           @reservation.room = room
           @reservation.price = room.price
-          @reservation.person = person
+          @reservation.person = person.to_i
           @reservation.total = room.price * person * days 
           @reservation.save
       end
