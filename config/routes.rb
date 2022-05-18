@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       delete :delete_photo
       post :upload_photo
     end
-    resources :reservations, only: [:create]
+    resources :reservations
   end
   
 end

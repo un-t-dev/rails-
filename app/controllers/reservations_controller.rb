@@ -1,23 +1,23 @@
 class ReservationsController < ApplicationController
     before_action :authenticate_user!
     
+    def new
+      @user = current_user.id
+      @room = Room.find(params[:room_id])
+      @reservation = Reservation.new(params.permit(:room_id, :start_date, :end_date, :person, :total))
+      @reservation.user_id = current_user.id
+      @reservation.person = person.to_i
+      @days = (@reservation.end_date - @reservation.start_date).to_i
+      @reservation.total = @days * @reservation.person * @room.price
+    end
+    
+    
     def create
-      room = Room.find(params[:room_id])
-      
-      if current_user == room.user
-      else
-          start_date = Date.parse(reservation_params[:start_date])
-          end_date = Date.parse(reservation_params[:end_date])
-          days = (end_date - start_date).to_i + 1
-  
-          @reservation = current_user.reservations.build(reservation_params)
-          @reservation.room = room
-          @reservation.price = room.price
-          @reservation.person = person.to_i
-          @reservation.total = room.price * person * days 
-          @reservation.save
+      @reservation = Reservation.new(params.permit(:room_id, :start_date, :end_date, :person, :total, :user_id))
+      @room = Room.find(params[:reservation][:room_id])
+      if @reservation.save
+        redirect_to reservation_path(@reservation)
       end
-      redirect_to room
     end
     
     
