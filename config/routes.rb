@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   
   post '/users/edit', to: 'users#update'
+  post 'reservations/confirm', to: 'reservations#confirm'
   
   resources :rooms, except: [:edit] do
     member do

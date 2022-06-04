@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
     before_action :authenticate_user!
     
-    def new
+    def confirm
       @reservation = Reservation.new(reservation_params)
       @days = (@reservation.end_date - @reservation.start_date).to_i
     end
