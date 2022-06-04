@@ -8,6 +8,10 @@ class ReservationsController < ApplicationController
     
     
     def create
+      @reservation = Reservation.new(reservation_params)
+      @days = (@reservation.end_date - @reservation.start_date).to_i
+      if @reservation.save
+      end
     end
     
     
