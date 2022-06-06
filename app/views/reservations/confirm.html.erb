@@ -1,6 +1,6 @@
 <div class="reservation_container">
   <h3>予約確認画面</h3>
-  <%= form_with model: @reservation, url: reservatons_path(@reservation), local:true do |f| %>
+  <%= form_with model: @reservation, url: room_reservatons_path(@room, @reservation), local:true do |f| %>
 
   <div class="booking">
     <p>金額</p>
