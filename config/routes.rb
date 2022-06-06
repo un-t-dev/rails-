@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   
   post '/users/edit', to: 'users#update'
   post 'reservations/confirm', to: 'reservations#confirm'
+  post '/your_reservations' => 'reservations#your_reservations'
+  
   
   resources :rooms, except: [:edit] do
     member do

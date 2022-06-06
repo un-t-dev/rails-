@@ -1,6 +1,6 @@
 <div class="reservation_container">
   <h3>予約確認画面</h3>
-  <%= form_with model: @reservation, url: room_reservatons_path(@room, @reservation), local:true do |f| %>
+  <%= form_with model: @reservation, url: your_reservations_path, local:true do |f| %>
 
   <div class="booking">
     <p>金額</p>
@@ -27,6 +27,10 @@
     <p><%= @reservation.room.price %>円/泊 × <%= @reservation.person %>人 × <%= @days %>泊</p>
     <p>¥<%= @reservation.room.price * @reservation.person * @days %></p>
   </div>
+  <%= f.hidden_field :room_id %>
+  <%= f.hidden_field :start_date %> 
+  <%= f.hidden_field :end_date %>
+  <%= f.hidden_field :person %>
   <div><%= f.submit "予約を確定", class: "submit" %></div>
     <button type="button", class="btn btn-success"><%= link_to "ルーム情報一覧へ", rooms_path %></button> 
   <% end %>
