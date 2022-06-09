@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
     before_action :authenticate_user!
     
     def your_reservations
-      @reservation = Reservation.all
+      @reservations = Reservation.all
       @user = current_user
     end
     
@@ -16,8 +16,8 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
       @room = Room.find(params[:reservation][:room_id])
       if @reservation.save
-        redirect_to room_reservations_path(@reservation)
       end
+      binding.pry
     end
     
     
