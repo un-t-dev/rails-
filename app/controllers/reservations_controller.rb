@@ -1,14 +1,14 @@
 class ReservationsController < ApplicationController
     before_action :authenticate_user!
     
-    def index
-      @reservations = Reservation.all
+    def your_reservations
+      @reservation = Reservation.all
       @user = current_user
     end
     
     def confirm
       @reservation = Reservation.new(reservation_params)
-      @days = (@reservation.end_date - @reservation.start_date).to_i
+      @days = (@reservation.end_date - @reservation.start_date).to_i / 86400
     end
     
     
@@ -20,9 +20,6 @@ class ReservationsController < ApplicationController
       end
     end
     
-    def your_reservations
-      @reservations = current_user.reservations
-    end
     
     private
       def reservation_params

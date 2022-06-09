@@ -3,7 +3,6 @@
   <table>
     <thead>
       <tr>
-        <th>合計料金</th>
         <th>人数</th>
         <th>開始日</th>
         <th>終了日</th>
@@ -13,7 +12,6 @@
     <tbody>
       <% @reservations.each do |reservation| %>
       <tr>
-      <td><%= reservation.total %></td>
       <td><%= reservation.person %></td>
       <td><%= reservation.start_date %></td>
       <td><%= reservation.end_date %></td>
