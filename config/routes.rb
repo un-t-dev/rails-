@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/your_reservations' => 'reservations#your_reservations'
   
   post '/users/edit', to: 'users#update'
-  post 'reservations/confirm', to: 'reservations#confirm'
+  post 'reservations/confirm' => 'reservations#confirm'
  
   
   

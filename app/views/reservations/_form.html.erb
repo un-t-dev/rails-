@@ -1,6 +1,6 @@
 <div class="reservation">
   <h3>予約</h3>
-  <%= form_with model: @reservation, url: reservations_confirm_path, local: true do |f| %>
+  <%= form_with model: @reservation, url: new_room_reservation_path, local: true do |f| %>
 
     <p><%= f.hidden_field :room_id, value: @room.id %></p>
     <p><%= f.hidden_field :user_id, value: current_user.id %></p>
