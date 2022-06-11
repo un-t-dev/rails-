@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   
   post '/users/edit', to: 'users#update'
-  post 'rooms/:room_id/reservations' => 'reservations#new'
+  
   
   
   resources :rooms, except: [:edit] do
