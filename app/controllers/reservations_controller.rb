@@ -15,9 +15,9 @@ class ReservationsController < ApplicationController
     def create
       @reservation = Reservation.new(reservation_params)
       @room = Room.find(params[:reservation][:room_id])
-      binding.pry
       if @reservation.save
       end
+      binding.pry
     end
     
     
