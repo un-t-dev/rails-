@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   
   post '/users/edit', to: 'users#update'
-  
+
   
   
   resources :rooms, except: [:edit] do
     member do
+      get 'search'
+      get 'word_search'
       get 'listing'
       get 'pricing'
       get 'description'

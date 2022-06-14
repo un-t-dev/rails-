@@ -45,7 +45,6 @@
 
 <% if (user_signed_in?) %>
     <nav class="navbar has-shadow" style="z-index: 3;">
-      <nav class="navbar has-shadow" style="z-index: 3;">
         <div class="container">
             <div class="navbar">
                 <%= link_to 'プロフィール', dashboard_path, class: "navbar-item" %>
@@ -64,10 +63,22 @@
                         <a class="navbar-item"></a>
                     </div>
                 </div>
+                
             </div>
         </div>
     </nav>
 <% end %>
 
-    </nav>
+<div class="search_area">
+  <%= form_with url: search_room_path(:id), method: :get, local: true do |f| %>
+    <%= f.text_field :address, placeholder: "エリア", class: "search-area_field" %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
 
+<div class="search_free_word_area">
+  <%= form_with url: word_search_room_path(:id), method: :get, local: true do |f| %>
+    <%= f.text_field :word, placeholder: "キーワード" %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>

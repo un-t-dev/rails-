@@ -9,5 +9,4 @@ class Room < ApplicationRecord
   
   validates :home_type, presence: true
   validates :room_type, presence: true
-  validates :accommodate, presence: true
 end

@@ -16,6 +16,9 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
       @room = Room.find(params[:reservation][:room_id])
       if @reservation.save
+        redirect_to room_reservations_path(:room)
+      else
+        render root_path
       end
     end
     
