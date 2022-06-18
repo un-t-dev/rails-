@@ -24,6 +24,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
     @photos = @room.photos
     @reservation = Reservation.new
   end
@@ -34,7 +35,6 @@ class RoomsController < ApplicationController
     else
       @rooms = Room.none
     end
-    binding.pry
   end
   
   def word_search
@@ -87,7 +87,8 @@ class RoomsController < ApplicationController
   private
   
   def set_room
-      @room = Room.find(params[:id])
+    @room = Room.find(params[:id])
+    binding.pry
   end
   
   def room_params
