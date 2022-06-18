@@ -29,12 +29,12 @@ class RoomsController < ApplicationController
   end
   
   def search
-    @room = Room.find(params[:id])
     if params[:address].present
       @rooms = Room.where('address LIKE ?', "%#{params[:address]}%")
     else
       @rooms = Room.none
     end
+    binding.pry
   end
   
   def word_search
