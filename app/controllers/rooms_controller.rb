@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
   def word_search
     
     if params[:word]
-      @rooms = Room.where('listing_name LIKE ? OR address LIKE ? OR price LIKE', "%#{params[:word]}%", "%#{params[:word]}%", "%#{params[:word]}%")
+      @rooms = Room.where('listing_name LIKE ? OR address LIKE ? OR price LIKE ?', "%#{params[:word]}%", "%#{params[:word]}%", "%#{params[:word]}%")
     else
       @rooms = Room.none
     end
