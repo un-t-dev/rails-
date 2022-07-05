@@ -8,8 +8,6 @@ class ReservationsController < ApplicationController
     
     def new
       @reservation = Reservation.new(reservation_params)
-      end_date = @reservation.end_date.to_i
-      binding.pry
       @days = (@reservation.end_date - @reservation.start_date).to_i / 86400
     end
     
