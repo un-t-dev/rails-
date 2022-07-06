@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
   protect_from_forgery except: [:upload_photo]
   
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :location, :update]
-  
+  before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :update]
+
 
   def index
     @rooms = current_user.rooms
@@ -88,7 +88,6 @@ class RoomsController < ApplicationController
   
   def set_room
     @room = Room.find(params[:id])
-    binding.pry
   end
   
   def room_params
