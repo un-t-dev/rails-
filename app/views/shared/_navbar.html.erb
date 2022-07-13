@@ -51,14 +51,14 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">ホスト</a>
                     <div class="navbar-dropdown">
-                        <%= link_to  "お部屋を新規登録", new_room_path, class: "navbar-item" %>
-                        <%= link_to  "登録したお部屋一覧", rooms_path, class: "navbar-item" %>
+                        <%= link_to  "お部屋を新規登録", new_roo_path, class: "navbar-item" %>
+                        <%= link_to  "登録したお部屋一覧", roos_path, class: "navbar-item" %>
                     </div>
                 </div>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">ゲスト</a>
                     <div class="navbar-dropdown">
-                      <%= link_to "予約済み一覧", room_reservations_path(:room_id), class: "navbar-item" %>
+                      <%= link_to "予約済み一覧", reservations_path, class: "navbar-item" %>
                         <a class="navbar-item"></a>
                         <a class="navbar-item"></a>
                     </div>
@@ -68,17 +68,14 @@
         </div>
     </nav>
 <% end %>
-
-<div class="search_area">
-  <%= form_with url: search_room_path(:id), method: :get, local: true do |f| %>
-    <%= f.text_field :address, placeholder: "エリア", class: "search-area_field" %>
-    <%= f.submit "検索" %>
-  <% end %>
-</div>
-
+<%= form_with url: roos_search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :room_area, placeholder: "エリア", class: "search-area_field" %>
+  <%= f.submit "検索" %>
+<% end %>
 <div class="search_free_word_area">
-  <%= form_with url: word_search_room_path(:id), method: :get, local: true do |f| %>
+  <%= form_with url: roos_search_free_word_path, method: :get, local: true do |f| %>
     <%= f.text_field :word, placeholder: "キーワード" %>
     <%= f.submit "検索" %>
   <% end %>
+</div>
 </div>

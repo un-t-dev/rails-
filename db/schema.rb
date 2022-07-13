@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_11_020058) do
+ActiveRecord::Schema.define(version: 2022_07_09_110720) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -76,7 +76,18 @@ ActiveRecord::Schema.define(version: 2022_05_11_020058) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.binary "room_image"
     t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "roos", force: :cascade do |t|
+    t.string "room_name"
+    t.string "introduction"
+    t.integer "room_price"
+    t.string "room_erea"
+    t.binary "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

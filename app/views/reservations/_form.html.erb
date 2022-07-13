@@ -1,6 +1,6 @@
 <div class="reservation">
   <h3>予約</h3>
-  <%= form_with model: @reservation, url: new_room_reservation_path(:room_id), method: :get, local: true do |f| %>
+  <%= form_with model: @reservation, url: new_reservation_path, method: :get, local: true do |f| %>
 
     <p><%= f.hidden_field :room_id, value: @room.id %></p>
     <p><%= f.hidden_field :user_id, value: current_user.id %></p>
@@ -18,7 +18,7 @@
     </div>
     <div class="booking">
       <div><%= f.submit "確認画面へ", class: "submit" %></div>
-      <button type="button", class="btn btn-success"><%= link_to "ルーム情報一覧へ", rooms_path %></button>
+      <button type="button", class="btn btn-success"><%= link_to "ルーム情報一覧へ", roos_path %></button>
     </div>
   <% end %>
 </div>

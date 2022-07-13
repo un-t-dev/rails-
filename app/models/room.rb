@@ -7,6 +7,4 @@ class Room < ApplicationRecord
   has_many_attached :photos
   has_rich_text :description
   
-  validates :home_type, presence: true
-  validates :room_type, presence: true
 end

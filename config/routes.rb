@@ -10,26 +10,12 @@ Rails.application.routes.draw do
   get 'pages/home'
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show', as: 'user'
+  get 'roos/search', to: 'roos#search'
+  get 'roos/search_free_word', to: 'roos#search_free_word'
   
   post '/users/edit', to: 'users#update'
 
-  
-  
-  resources :rooms, except: [:edit] do
-    member do
-      get 'search'
-      get 'word_search'
-      get 'listing'
-      get 'pricing'
-      get 'description'
-      get 'photo_upload'
-      get 'location'
-      get 'preload'
-      get 'preview'
-      delete :delete_photo
-      post :upload_photo
-    end
-    resources :reservations
-  end
+  resources :roos
+  resources :reservations
   
 end

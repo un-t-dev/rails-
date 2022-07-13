@@ -7,15 +7,17 @@
             <th>ルーム名</th>
             <th>ルーム紹介</th>
             <th>料金</th>
+            <th>予約</th>
         </thead>
         <tbody class="room-user-infomation">
-        <% @rooms.each do |room| %>
+        <% @roos.each do |roo| %>
             <tr>
-                <td><%= image_tag room.room_image.url, class: "image" %></td>
-                <td><%= room.address %></td>
-                <td><%= room.listing_name %></td>
-                <td><%= room.room_type %></td>
-                <td><%= room.price %></td>
+                <td><img src="<%= @roo.image %>" width="100"> </td>
+                <td><%= roo.room_area %></td>
+                <td><%= roo.room_name %></td>
+                <td><%= roo.introduction %></td>
+                <td><%= roo.room_price %></td>
+                <td><%= link_to "予約", roo_path %></td>
             </tr>
         <% end %>    
         </tbody>    

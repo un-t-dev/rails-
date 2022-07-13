@@ -1,51 +1,31 @@
-<section class="section">
-  <div class="container">
-    
-    <article class="panel">
-      <div class="panel-heading">
-        お部屋の登録
-      </div>
-      
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <%= form_for @room do |f| %>
-            
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>お家のタイプ</label>
-                <%= f.select :home_type, [["マンション", "マンション"], ["アパート", "アパート"], ["一戸建て", "一戸建て"]],
-                    id: "home_type", prompt: "選択してください", class: "form-control" %>
-              </div>
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>お部屋のタイプ</label>
-                <%= f.select :room_type, [ ["プライベート", "プライベート"], ["シェア", "シェア"]],
-                    id: "room_type", prompt: "選択してください", class: "form-control" %>
-              </div>
-            </div>
-            <br/>
-            <br/>
-            <br/>
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>部屋数</label>
-                <%= f.select :bath_room, [["1部屋", 1], ["2部屋", 2], ["3部屋", 3], ["4部屋以上", 4]],
-                    id: "bath_rooms", prompt: "選択してください", class: "form-control" %>
-              </div>
-            </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div><%= f.submit "登録する", class: "button is-primary" %></div>
-        <% end %>
-          </div>
-        </div>
-      </div>
-    </article>
-    
-  </div>
-</section>
+<div class="room_container">
+  <h3>ルーム情報登録</h3>
+
+  <%= form_with model: @room, url: rooms_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="room">
+      <%= f.label :listing_name, "ルーム名", class:"bold" %><br>
+      <%= f.text_field :listing_name, class:"input_field", placeholder: "ルーム名を入力" %>
+    </div> 
+    <div class="registration">
+      <%= f.label :room_type, "ルーム紹介", class:"bold" %><br>
+      <%= f.text_field :room_type, class:"wide_field", placeholder: "ルームの説明を入力" %>
+    </div>
+    <div class="registration">
+      <%= f.label :price, "料金", class:"bold" %><br>
+      <%= f.number_field :price, class:"input_field", placeholder: "１日あたりの料金を入力"  %>
+    </div>
+    <div class="registration">
+      <%= f.label :address, "住所", class:"bold" %><br>
+      <%= f.text_field :address, class:"input_field", placeholder: "住所を入力" %>
+    </div>
+    <div class="registration">
+      <%= f.label :room_image, "ルーム画像", class:"bold" %><br>
+      <%= f.file_field :room_image, class:"input_field" %>
+    </div>
+    <div class="registration">
+      <%= f.submit "登録", class: "submit" %>
+    </div>
+  <% end %>
+
+</div>
