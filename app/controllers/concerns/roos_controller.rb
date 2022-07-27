@@ -8,12 +8,11 @@ class RoosController < ApplicationController
   end
 
   def new
-    @roo = Roo.new(roo_params)
+    @roo = Roo.new
   end
 
   def create
     @roo = Roo.new(roo_params)
-    binding.pry
     if @roo.save
        redirect_to roos_path(@roo)
     else
@@ -45,7 +44,8 @@ class RoosController < ApplicationController
   private
   
   def roo_params
-      params.permit(:room_name, :introduction, :room_area, :room_price, :image)
+      binding.
+      params.require(:roo).permit(:id, :room_name, :introduction, :room_area, :room_price, :image).merge(user_id: current_user.id)
   end
   
 end
