@@ -1,0 +1,25 @@
+<div class="room-post-content">
+    <h3>登録済みルーム一覧</h3>
+    <table>
+        <thead class="room-infomation">
+            <th>ルーム画像</th>
+            <th>エリア</th>
+            <th>ルーム名</th>
+            <th>ルーム紹介</th>
+            <th>料金</th>
+            <th>予約</th>
+        </thead>
+        <tbody class="room-user-infomation">
+        <% @roos.each do |roo| %>
+            <tr>
+                <td><img src="<%= @roo.image %>" width="100"> </td>
+                <td><%= roo.room_area %></td>
+                <td><%= roo.room_name %></td>
+                <td><%= roo.introduction %></td>
+                <td><%= roo.room_price %></td>
+                <td><%= link_to "予約", roo_path %></td>
+            </tr>
+        <% end %>    
+        </tbody>    
+   </table>
+</div>
