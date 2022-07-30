@@ -14,7 +14,6 @@ class ReservationsController < ApplicationController
     
     def create
       @reservation = Reservation.new(reservation_params)
-      @roo = Roo.find(params[:reservation][:roo_id])
       if @reservation.save
         redirect_to reservations_path(:reservation)
       else
@@ -25,7 +24,7 @@ class ReservationsController < ApplicationController
     
     private
       def reservation_params
-        params.require(:reservation).permit(:start_date, :end_date, :person).merge(user_id: current_user.id, roo_id: params[:reservation][:roo_id])
+        params.require(:reservation).permit(:start_date, :end_date, :person).merge(user_id: current_user.id, room_registration_id: params[:reservation][:room_registration_id])
       end
 
 end

@@ -10,13 +10,13 @@
             <th>予約</th>
         </thead>
         <tbody class="room-user-infomation">
-        <% @roos.each do |roo| %>
+        <% @room_registrations.each do |roo| %>
             <tr>
-                <td><img src="<%= @roo.image %>" width="100"> </td>
-                <td><%= roo.room_area %></td>
-                <td><%= roo.room_name %></td>
-                <td><%= roo.introduction %></td>
-                <td><%= roo.room_price %></td>
+                <td><img src="<%= @room_registrations.image %>" width="100"> </td>
+                <td><%= room_registration.room_area %></td>
+                <td><%= room_registration.room_name %></td>
+                <td><%= room_registration.introduction %></td>
+                <td><%= room_registration.room_price %></td>
                 <td><%= link_to "予約", roo_path %></td>
             </tr>
         <% end %>    

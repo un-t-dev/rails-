@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   get 'pages/home'
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show', as: 'user'
-  get 'roos/search', to: 'roos#search'
-  get 'roos/search_free_word', to: 'roos#search_free_word'
+  get 'room_registrations/search', to: 'room_registrations#search'
+  get 'room_registrations/search_free_word', to: 'room_registrations#search_free_word'
   
   post '/users/edit', to: 'users#update'
 
-  resources :roos
+  resources :room_registrations
   resources :reservations
   
 end
