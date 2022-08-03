@@ -12,7 +12,7 @@
         <tbody class="room-user-infomation">
         <% @room_registrations.each do |roo| %>
             <tr>
-                <td><img src="<%= @room_registration.image %>" width="100"> </td>
+                <td><%= image_tag @room_registration.image.url %></td>
                 <td><%= room_registration.room_erea %></td>
                 <td><%= room_registration.room_name %></td>
                 <td><%= room_registration.introduction %></td>
