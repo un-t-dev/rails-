@@ -12,12 +12,12 @@
         <tbody class="room-user-infomation">
         <% @room_registrations.each do |roo| %>
             <tr>
-                <td><img src="<%= @room_registrations.image %>" width="100"> </td>
-                <td><%= room_registration.room_area %></td>
+                <td><img src="<%= @room_registration.image %>" width="100"> </td>
+                <td><%= room_registration.room_erea %></td>
                 <td><%= room_registration.room_name %></td>
                 <td><%= room_registration.introduction %></td>
                 <td><%= room_registration.room_price %></td>
-                <td><%= link_to "予約", roo_path %></td>
+                <td><%= link_to "予約", room_registration_path %></td>
             </tr>
         <% end %>    
         </tbody>    

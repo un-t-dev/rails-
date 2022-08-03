@@ -26,8 +26,8 @@ class RoomRegistrationsController < ApplicationController
   end
   
   def search
-    if params[:room_area]
-      @room_registrations = RoomRegistration.where('room_area LIKE ?', "%#{params[:room_area]}%")
+    if params[:room_erea]
+      @room_registrations = RoomRegistration.where('room_erea LIKE ?', "%#{params[:room_erea]}%")
     else
       @room_registrations = RoomRegistration.none
     end
@@ -35,7 +35,7 @@ class RoomRegistrationsController < ApplicationController
   
   def word_free_search
     if params[:word]
-      @room_registrations = RoomRegistration.where('room_name LIKE ? OR room_area LIKE ? OR room_price LIKE ?', "%#{params[:word]}%", "%#{params[:word]}%", "%#{params[:word]}%")
+      @room_registrations = RoomRegistration.where('room_name LIKE ? OR room_erea LIKE ? OR room_price LIKE ?', "%#{params[:word]}%", "%#{params[:word]}%", "%#{params[:word]}%")
     else
       @room_registrations = RoomRegistration.none
     end
@@ -44,7 +44,7 @@ class RoomRegistrationsController < ApplicationController
   private
   
   def room_registration_params
-      params.require(:room_registration).permit(:id, :room_name, :introduction, :room_area, :room_price, :image).merge(user_id: current_user.id)
+      params.require(:room_registration).permit(:id, :room_name, :introduction, :room_erea, :room_price, :image).merge(user_id: current_user.id)
   end
   
 end
