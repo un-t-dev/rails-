@@ -4,7 +4,7 @@
 
   <div class="booking">
     <p>金額</p>
-    <p>¥<%= @reservation.room.price %>（お１人様１泊につき）</p>
+    <p>¥<%= @reservation.room_registration.room_price %>（お１人様１泊につき）</p>
   </div>
   <div class="booking">
     <p>開始日</p>
@@ -24,14 +24,14 @@
   </div>
   <div class="booking">
     <p>お支払い金額</p>
-    <p><%= @reservation.roo.room_price %>円/泊 × <%= @reservation.person %>人 × <%= @days %>泊</p>
-    <p>¥<%= @reservation.roo.room_price * @reservation.person * @days %></p>
+    <p><%= @reservation.room_registration.room_price %>円/泊 × <%= @reservation.person %>人 × <%= @days %>泊</p>
+    <p>¥<%= @reservation.room_registration.room_price * @reservation.person * @days %></p>
   </div>
-  <%= f.hidden_field :roo_id %>
+  <%= f.hidden_field :room_registration_id %>
   <%= f.hidden_field :start_date %> 
   <%= f.hidden_field :end_date %>
   <%= f.hidden_field :person %>
   <div><%= f.submit "予約を確定", class: "submit" %></div>
-    <button type="button", class="btn btn-success"><%= link_to "ルーム情報一覧へ", roos_path %></button> 
+    <button type="button", class="btn btn-success"><%= link_to "ルーム情報一覧へ", room_registrations_path %></button> 
   <% end %>
 </div>

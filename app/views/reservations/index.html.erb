@@ -14,7 +14,7 @@
       <% @reservations.each do |reservation| %>
       <tr>
       <td><%= reservation.person %></td>
-      <td><%= reservation.roo.roomprice %></td>
+      <td><%= reservation.room_registration.room_price %></td>
       <td><%= reservation.start_date %></td>
       <td><%= reservation.end_date %></td>
       </tr>

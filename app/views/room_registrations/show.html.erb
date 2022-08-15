@@ -2,7 +2,7 @@
   <h3>予約</h3>
   <%= form_with model: @reservation, url: new_reservation_path, method: :get, local: true do |f| %>
 
-    <p><%= f.hidden_field :room_registration_id, value: room_registration.id  %></p>
+    <p><%= f.hidden_field :room_registration_id, value: @room_registration.id  %></p>
     <p><%= f.hidden_field :user_id, value: current_user.id %></p>
     <div class="booking">
       <%= f.label :start_date, "開始日", class:"bold" %><br>
