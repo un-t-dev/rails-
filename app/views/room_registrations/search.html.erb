@@ -1,0 +1,24 @@
+<h3>検索結果</h3>
+<div class="result">
+  
+  <table>
+    <thead>
+     <tr>
+      <th>画像</th>
+      <th>部屋名</th>
+      <th>エリア</th>
+      <th>料金</th>
+     </tr>
+    </thead>
+    <tbody>
+      <% @room_registrations.each do |room_registration| %>
+      <tr>
+        <td><%= image_tag room_registration.image.url %></td>
+        <td><%= room_registration.room_name %></td>
+        <td><%= room_registration.room_erea %></td>
+        <td><%= room_registration.room_price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

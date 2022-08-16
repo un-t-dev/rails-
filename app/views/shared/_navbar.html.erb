@@ -1,0 +1,81 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <h1>stay</h1>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+      </div>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item"></a>
+      <a class="navbar-item"></a>
+      
+      <% if (!user_signed_in?) %>
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to "新規登録", new_user_registration_path, class: "button is-white" %>
+          <%= link_to "ログイン", new_user_session_path, class: "button is-white" %>
+        </div>
+      </div>
+      
+      <% else %>
+      <div class="navbar-item has-dropdown is-hoverable" style="margin-right: 100px;">
+        <a class="navbar-item">
+          <figure class="image is-48x48 m-r-5">
+            <div style="margin-top: 0.6rem;">
+              <%= image_tag avatar_url(current_user), class: "is-rounded" %>
+            </div>
+         </figure>
+        </a>
+        <div class="navbar-dropdown">
+          <a href="" class="navbar-item"></a>
+          <a href="" class="navbar-item"></a>
+          <hr class="navbar-divider">
+          <%= link_to  "ユーザー登録情報編集", edit_user_registration_path, class: "navbar-item" %>
+          <a href="" class="navbar-item"></a>
+          <hr class="navbar-divider">
+          <%= link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<% if (user_signed_in?) %>
+    <nav class="navbar has-shadow" style="z-index: 3;">
+        <div class="container">
+            <div class="navbar">
+                <%= link_to 'プロフィール', dashboard_path, class: "navbar-item" %>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">ホスト</a>
+                    <div class="navbar-dropdown">
+                        <%= link_to  "お部屋を新規登録", new_room_registration_path, class: "navbar-item" %>
+                        <%= link_to  "登録したお部屋一覧", room_registrations_path, class: "navbar-item" %>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">ゲスト</a>
+                    <div class="navbar-dropdown">
+                      <%= link_to "予約済み一覧", reservations_path, class: "navbar-item" %>
+                        <a class="navbar-item"></a>
+                        <a class="navbar-item"></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+<% end %>
+<%= form_with url: room_registrations_search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :room_erea, placeholder: "エリア", class: "search-area_field" %>
+  <%= f.submit "検索" %>
+<% end %>
+<div class="search_free_word_area">
+  <%= form_with url: room_registrations_word_free_search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :word, placeholder: "キーワード" %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+</div>
