@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show', as: 'user'
   get 'room_registrations/search', to: 'room_registrations#search'
-  get 'room_registrations/search_free_word', to: 'room_registrations#search_free_word'
+  get 'room_registrations/word_free_search', to: 'room_registrations#word_free_search'
   
   post '/users/edit', to: 'users#update'
 

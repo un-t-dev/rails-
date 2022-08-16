@@ -73,7 +73,7 @@
   <%= f.submit "検索" %>
 <% end %>
 <div class="search_free_word_area">
-  <%= form_with url: room_registrations_search_free_word_path, method: :get, local: true do |f| %>
+  <%= form_with url: room_registrations_word_free_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :word, placeholder: "キーワード" %>
     <%= f.submit "検索" %>
   <% end %>
