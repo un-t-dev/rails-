@@ -5,6 +5,7 @@ class RoomRegistrationsController < ApplicationController
 
   def index
     @room_registrations = RoomRegistration.all
+    
   end
 
   def new
