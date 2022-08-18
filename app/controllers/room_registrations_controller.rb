@@ -21,7 +21,6 @@ class RoomRegistrationsController < ApplicationController
     else
       render :root_path
     end
-    binding.pry
   end
 
   def show
