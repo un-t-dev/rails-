@@ -5,20 +5,23 @@ class RoomRegistrationsController < ApplicationController
 
   def index
     @room_registrations = RoomRegistration.all
-    
+    @user = User.find(current_user.id)
   end
 
   def new
+    @user = current_user.id
     @room_registration = RoomRegistration.new
   end
 
   def create
     @room_registration = RoomRegistration.new(room_registration_params)
+    @room_registration.user_id = current_user.id
     if @room_registration.save
        redirect_to room_registrations_path
     else
       render :root_path
     end
+    binding.pry
   end
 
   def show
