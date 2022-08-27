@@ -8,7 +8,6 @@ class ReservationsController < ApplicationController
     
     def new
       @reservation = Reservation.new(reservation_params)
-      
       @days = (@reservation.end_date - @reservation.start_date).to_i / 86400
     end
     
